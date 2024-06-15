@@ -21,7 +21,7 @@ Welcome to **Streamlitify**, an educational application designed to help you lea
 
 If you want to try your skills with Streamlit framework, you can install required packages using pip:
    ```sh
-    pip install streamlit pandas
+    pip install streamlit pandas numpy
    ```
    
 ## Usage
