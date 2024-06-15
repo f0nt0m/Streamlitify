@@ -1,12 +1,12 @@
 import flet as ft
 import asyncio
-from mainscreen import MainScreen
-from signin import SignInScreen
-from register import RegisterScreen
-from mainmenu import MainMenuScreen
-from test import TestScreen
-from theory import TheoryScreen
-from simulator import SimulatorScreen
+from screens.mainscreen import MainScreen
+from screens.signin import SignInScreen
+from screens.register import RegisterScreen
+from screens.mainmenu import MainMenuScreen
+from screens.test import TestScreen
+from screens.theory import TheoryScreen
+from screens.simulator import SimulatorScreen
 
 
 class StreamlitLearnApp:
