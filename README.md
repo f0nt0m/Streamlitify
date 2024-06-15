@@ -70,6 +70,7 @@ If you have any questions or feedback, please feel free to reach out:
 
 - **[Telegram](https://t.me/f0ntt0m)**
 - **[GitHub](https://github.com/f0nt0m)**
+- **Email**: dummer_d@icloud.com
 
 ---
 
