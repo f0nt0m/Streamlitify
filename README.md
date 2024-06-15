@@ -66,7 +66,7 @@ Contributions are welcome! If you have suggestions for improvements or find any 
 
 ## Contact
 
-If you have any questions or feedback, please feel free to reach out:
+If you have any questions or feedback, please feel free to reach me out:
 
 - **[Telegram](https://t.me/f0ntt0m)**
 - **[GitHub](https://github.com/f0nt0m)**
