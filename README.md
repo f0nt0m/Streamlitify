@@ -19,7 +19,7 @@ Welcome to **Streamlitify**, an educational application designed to help you lea
 
 ### Installation
 
-**If you want to try your skills with Streamlit framework, you can install required packages using pip**:
+If you want to try your skills with Streamlit framework, you can install required packages using pip:
    ```sh
     pip install streamlit pandas
    ```
