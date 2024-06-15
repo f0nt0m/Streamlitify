@@ -1,5 +1,3 @@
----
-
 # Streamlitify
 
 Welcome to **Streamlitify**, an educational application designed to help you learn the Streamlit framework for building interactive web applications in Python. This app provides a hands-on learning experience with practical examples and interactive exercises.
