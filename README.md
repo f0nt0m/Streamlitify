@@ -26,12 +26,11 @@ If you want to try your skills with Streamlit framework, you can install require
    
 ## Usage
 
-Once the application is running, open your web browser and navigate to `http://localhost:8501`. You will be greeted with the main menu of Streamlitify. From here, you can choose different sections to start learning:
+Once the application is running, you will be greeted with the main menu of Streamlitify. From here, you can choose different sections to start learning:
 
 - **Theory**: Learn the concepts and features of Streamlit.
-- **Code Examples**: Explore and run example codes.
-- **Exercises**: Solve exercises to practice what you have learned.
-- **Simulator**: Try out your own code in the simulator and see the results in real-time.
+- **Test**: Complete tests as you learn theory.
+- **Simulator**: Test your skills with simulator.
 
 ## Application Structure
 
