@@ -19,22 +19,11 @@ Welcome to **Streamlitify**, an educational application designed to help you lea
 
 ### Installation
 
-1. **Clone the repository**:
+**If you want to try your skills with Streamlit framework, you can install required packages using pip**:
    ```sh
-   git clone https://github.com/yourusername/Streamlitify.git
-   cd Streamlitify
+    pip install streamlit pandas numpy
    ```
-
-2. **Install the required packages to develop on Streamlit framework**:
-   ```sh
-   pip install streamlit pandas numpy
-   ```
-
-3. **Run the application**:
-   ```sh
-   streamlit run main.py
-   ```
-
+   
 ## Usage
 
 Once the application is running, open your web browser and navigate to `http://localhost:8501`. You will be greeted with the main menu of Streamlitify. From here, you can choose different sections to start learning:
