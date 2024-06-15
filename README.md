@@ -1,7 +1,3 @@
-Here's a sample README for your Streamlitify app:
-
----
-
 # Streamlitify
 
 Welcome to **Streamlitify**, an educational application designed to help you learn the Streamlit framework for building interactive web applications in Python. This app provides a hands-on learning experience with practical examples and interactive exercises.
@@ -29,9 +25,9 @@ Welcome to **Streamlitify**, an educational application designed to help you lea
    cd Streamlitify
    ```
 
-2. **Install the required packages**:
+2. **Install the required packages to develop on Streamlit framework**:
    ```sh
-   pip install -r requirements.txt
+   pip install streamlit pandas numpy
    ```
 
 3. **Run the application**:
@@ -91,8 +87,8 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 If you have any questions or feedback, please feel free to reach out:
 
-- **Email**: yourname@example.com
-- **GitHub**: [yourusername](https://github.com/yourusername)
+- **Email**: dummer_d@icloud.com
+- **GitHub**: [f0nt0m](https://github.com/f0nt0m)
 
 ---
 
