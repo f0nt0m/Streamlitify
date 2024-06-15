@@ -51,7 +51,6 @@ The project structure is organized as follows:
 ```
 Streamlitify/
 │
-├── .venv/                # Virtual environment
 ├── basescreen.py         # Base screen class
 ├── main.py               # Main application file
 ├── mainmenu.py           # Main menu screen
@@ -61,8 +60,6 @@ Streamlitify/
 ├── simulator.py          # Code simulator screen
 ├── test.py               # Test screen for exercises
 ├── theory.py             # Theory content screen
-├── wrap_long_lines.py    # Script to wrap long lines of text
-├── requirements.txt      # List of required Python packages
 └── README.md             # This README file
 ```
 
@@ -78,10 +75,6 @@ Contributions are welcome! If you have suggestions for improvements or find any 
 4. Commit your changes (`git commit -m 'Add new feature'`)
 5. Push to the branch (`git push origin feature-branch`)
 6. Open a pull request
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
 ## Contact
 
