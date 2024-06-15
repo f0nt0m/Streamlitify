@@ -81,6 +81,7 @@ Contributions are welcome! If you have suggestions for improvements or find any 
 If you have any questions or feedback, please feel free to reach out:
 
 - **Email**: dummer_d@icloud.com
+- **Telegram**: [f0ntt0m](htttps://t.me/f0ntt0m)
 - **GitHub**: [f0nt0m](https://github.com/f0nt0m)
 
 ---
