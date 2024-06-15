@@ -1,5 +1,5 @@
 import flet as ft
-from basescreen import BaseScreen
+from init.basescreen import BaseScreen
 
 
 class TheoryScreen(BaseScreen):
