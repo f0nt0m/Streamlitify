@@ -14,15 +14,6 @@ Welcome to **Streamlitify**, an educational application designed to help you lea
 
 Contributions are welcome! If you have suggestions for improvements or find any bugs, feel free to open an issue or create a pull request.
 
-### Steps to Contribute
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature-branch`)
-3. Make your changes
-4. Commit your changes (`git commit -m 'Add new feature'`)
-5. Push to the branch (`git push origin feature-branch`)
-6. Open a pull request
-
 ## Contact
 
 If you have any questions or feedback, please feel free to reach me out:
