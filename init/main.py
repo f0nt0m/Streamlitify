@@ -4,10 +4,10 @@ from init.signin import SignInScreen
 from init.register import RegisterScreen
 from init.mainmenu import MainMenuScreen
 from init.profile import ProfileScreen
-from screens.test1 import TestScreen
+from screens.test1 import TestScreen1
 from screens.theory1 import TheoryScreen1
 from screens.theory2 import TheoryScreen2
-from screens.simulator1 import SimulatorScreen
+from screens.simulator1 import SimulatorScreen1
 
 
 class StreamlitLearnApp:
@@ -31,10 +31,10 @@ class StreamlitLearnApp:
         self.screens["register"] = RegisterScreen(page, self)
         self.screens["mainmenu"] = MainMenuScreen(page, self)
         self.screens["profile"] = ProfileScreen(page, self)
-        self.screens["test1"] = TestScreen(page, self)
+        self.screens["test1"] = TestScreen1(page, self)
         self.screens["theory1"] = TheoryScreen1(page, self)
         self.screens["theory2"] = TheoryScreen2(page, self)
-        self.screens["simulator1"] = SimulatorScreen(page, self)
+        self.screens["simulator1"] = SimulatorScreen1(page, self)
 
         self.show_screen("main")
 

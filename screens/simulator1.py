@@ -2,7 +2,7 @@ import flet as ft
 from init.basescreen import BaseScreen
 
 
-class SimulatorScreen(BaseScreen):
+class SimulatorScreen1(BaseScreen):
     def __init__(self, page, app):
         super().__init__(page, app)
         self.simulator_title = ft.Text("Simulator", size=30, weight=ft.FontWeight.BOLD)

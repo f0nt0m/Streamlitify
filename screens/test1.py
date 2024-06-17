@@ -2,7 +2,7 @@ import flet as ft
 from init.basescreen import BaseScreen
 
 
-class TestScreen(BaseScreen):
+class TestScreen1(BaseScreen):
     def __init__(self, page, app):
         super().__init__(page, app)
         self.test_title = ft.Text("Test", size=30, weight=ft.FontWeight.BOLD)

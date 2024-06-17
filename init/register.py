@@ -1,4 +1,5 @@
 import flet as ft
+import re
 from init.basescreen import BaseScreen
 from init.database import UserDatabase
 
@@ -49,6 +50,12 @@ class RegisterScreen(BaseScreen):
             self.page.update()
             return
 
+        if not self.is_valid_email(email):
+            self.page.snack_bar = ft.SnackBar(ft.Text("Invalid email format"))
+            self.page.snack_bar.open = True
+            self.page.update()
+            return
+
         if self.db.user_exists(email):
             self.page.snack_bar = ft.SnackBar(ft.Text("User with this email already exists"))
             self.page.snack_bar.open = True
@@ -63,6 +70,15 @@ class RegisterScreen(BaseScreen):
             self.page.snack_bar = ft.SnackBar(ft.Text("Failed to register user"))
             self.page.snack_bar.open = True
             self.page.update()
+
+    @staticmethod
+    def is_valid_email(email):
+        # Регулярное выражение для проверки формата email
+        pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+        # Проверка на соответствие паттерну и отсутствие последовательных точек в домене
+        if re.match(pattern, email) and '..' not in email.split('@')[1]:
+            return True
+        return False
 
     def build(self):
         register_container = ft.Container(
