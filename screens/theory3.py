@@ -66,7 +66,7 @@ class TheoryScreen3(BaseScreen):
         )
 
     def load_theory_content(self):
-        with open("theory.json", "r") as file:
+        with open("text/theory.json", "r") as file:
             theory_data = json.load(file)["theory3"]
 
         content = []
