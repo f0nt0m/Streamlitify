@@ -5,7 +5,7 @@ from init.basescreen import BaseScreen
 class SimulatorScreen(BaseScreen):
     def __init__(self, page, app):
         super().__init__(page, app)
-        self.simulator_title = ft.Text("", size=30, weight=ft.FontWeight.BOLD)
+        self.simulator_title = ft.Text("Simulator", size=30, weight=ft.FontWeight.BOLD)
         self.code_snippet = ft.Text(
             """import streamlit as st
 
@@ -16,22 +16,22 @@ st.write("This is a sample Streamlit app.")""",
             width=600,
         )
         self.user_input = ft.TextField(
-            label="",
+            label="Your Code",
             hint_text="Enter corrected code",
             width=600,
             multiline=True,
             height=100,
         )
         self.check_button = ft.ElevatedButton(
-            text="",
+            text="Check",
             color=ft.colors.WHITE,
             bgcolor=ft.colors.PURPLE,
-            width=250,  # Slightly increased width
+            width=250,
             on_click=self.check_code,
         )
         self.result_text = ft.Text("", size=16)
         self.go_back_button = ft.TextButton(
-            text="",
+            text="Return to main menu",
             on_click=self.go_back,
             style=ft.ButtonStyle(color=ft.colors.PURPLE),
         )
@@ -48,26 +48,14 @@ st.write("This is a sample Streamlit app.")""",
     def check_code(self, e):
         # Здесь реализация проверки кода
         user_code = self.user_input.value
-        # ... (Проверка user_code на корректность)
         if (
-            user_code
-            == 'import streamlit as st\n\nst.title("My Streamlit App")\n'
-            'st.write("This is a sample Streamlit app.")'
+                user_code
+                == 'import streamlit as st\n\nst.title("My Streamlit App")\n'
+                   'st.write("This is a sample Streamlit app.")'
         ):
             self.result_text.value = "Correct! You fixed the code!"
         else:
             self.result_text.value = "Oops, try again!"
-        self.page.update()
-
-    def update_texts(self):
-        self.simulator_title.value = self.app.translations[self.app.language][
-            "simulator"
-        ]
-        self.check_button.text = "Check"
-        self.go_back_button.text = self.app.translations[self.app.language][
-            "return_to_main_menu"
-        ]
-        self.language_selector.value = self.app.language
         self.page.update()
 
     def build(self):
@@ -119,7 +107,6 @@ st.write("This is a sample Streamlit app.")""",
                 ),
                 ft.Row(
                     [
-                        self.language_selector,
                         ft.Container(expand=True),
                         self.theme_button,
                     ]

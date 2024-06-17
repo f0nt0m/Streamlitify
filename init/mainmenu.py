@@ -7,32 +7,32 @@ class MainMenuScreen(BaseScreen):
         super().__init__(page, app)
         self.username = app.username  # Получаем никнейм пользователя
         self.signout_button = ft.TextButton(
-            text="",
+            text="Sign out",
             on_click=self.signout,
             style=ft.ButtonStyle(color=ft.colors.PURPLE),
         )
-        self.menu_title = ft.Text(f"", size=30, weight=ft.FontWeight.BOLD)
-        self.menu_subtitle = ft.Text(f"", size=20)
+        self.menu_title = ft.Text(f"Main Menu", size=30, weight=ft.FontWeight.BOLD)
+        self.menu_subtitle = ft.Text(f"Select from the list below:", size=20)
         self.theory_button = ft.ElevatedButton(
-            text="",
+            text="Theory",
             color=ft.colors.WHITE,
             bgcolor=ft.colors.PURPLE,
             width=280,
             on_click=self.theory_clicked,
         )
         self.test_button = ft.ElevatedButton(
-            text="",
+            text="Test",
             color=ft.colors.WHITE,
             bgcolor=ft.colors.PURPLE,
             width=280,
             on_click=self.test_clicked,
         )
         self.simulator_button = ft.ElevatedButton(
-            text="",
+            text="Simulator",
             color=ft.colors.WHITE,
             bgcolor=ft.colors.PURPLE,
             width=280,
-            on_click=self.simulator_clicked,  # Add on_click for Simulator button
+            on_click=self.simulator_clicked,
         )
         self.logo_text = ft.Text(
             "Streamlitify",
@@ -41,12 +41,9 @@ class MainMenuScreen(BaseScreen):
             color=ft.colors.PURPLE,
         )
 
-        # Создаем greeting_text здесь
         self.greeting_text = ft.Text(
             spans=[
-                ft.TextSpan(
-                    text=f"{self.app.translations[self.app.language]['signed_in_as']} "
-                ),
+                ft.TextSpan(text=f"You have signed in as "),
                 ft.TextSpan(
                     text=f"{self.username}",
                     style=ft.TextStyle(color=ft.colors.PURPLE),
@@ -59,45 +56,13 @@ class MainMenuScreen(BaseScreen):
         self.app.show_screen("main")
 
     def test_clicked(self, e):
-        self.app.show_screen("test")
+        self.app.show_screen("test1")
 
     def theory_clicked(self, e):
-        self.app.show_screen("theory")
+        self.app.show_screen("theory1")
 
     def simulator_clicked(self, e):
-        self.app.show_screen("simulator")  # Show the Simulator screen
-
-    def update_texts(self):
-        # Обновляем текст здесь
-        self.username = (
-            self.app.username
-        )  # Получаем актуальный никнейм пользователя
-        self.greeting_text.spans[0].text = self.app.translations[
-            self.app.language
-        ]["signed_in_as"]
-        self.greeting_text.spans[1].text = (
-            self.username.lower()
-        )  # Обновляем никнейм пользователя
-        self.signout_button.text = self.app.translations[self.app.language][
-            "signout"
-        ]
-        self.menu_title.value = self.app.translations[self.app.language][
-            "main_menu"
-        ]
-        self.menu_subtitle.value = self.app.translations[self.app.language][
-            "main_menu_select"
-        ]
-        self.theory_button.text = self.app.translations[self.app.language][
-            "theory"
-        ]
-        self.test_button.text = self.app.translations[self.app.language][
-            "test"
-        ]
-        self.simulator_button.text = self.app.translations[self.app.language][
-            "simulator"
-        ]
-        self.language_selector.value = self.app.language
-        self.page.update()
+        self.app.show_screen("simulator1")
 
     def build(self):
         main_menu_container = ft.Container(
@@ -107,7 +72,7 @@ class MainMenuScreen(BaseScreen):
                     self.menu_subtitle,
                     self.theory_button,
                     self.test_button,
-                    self.simulator_button,  # Include Simulator button
+                    self.simulator_button,
                 ],
                 spacing=20,
                 alignment=ft.MainAxisAlignment.CENTER,
@@ -140,7 +105,6 @@ class MainMenuScreen(BaseScreen):
                 ),
                 ft.Row(
                     [
-                        self.language_selector,
                         ft.Container(expand=True),
                         self.theme_button,
                     ]

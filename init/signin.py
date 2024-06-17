@@ -5,33 +5,33 @@ from init.basescreen import BaseScreen
 class SignInScreen(BaseScreen):
     def __init__(self, page, app):
         super().__init__(page, app)
-        self.signin_title = ft.Text("", size=30, weight=ft.FontWeight.BOLD)
-        self.email_field = ft.TextField(label="", width=280)
+        self.signin_title = ft.Text("Sign in", size=30, weight=ft.FontWeight.BOLD)
+        self.email_field = ft.TextField(label="Email or login", width=280)
         self.password_field = ft.TextField(
-            label="", password=True, can_reveal_password=True, width=280
+            label="Password",
+            password=True,
+            can_reveal_password=True,
+            width=280,
         )
         self.signin_button = ft.ElevatedButton(
-            text="",
+            text="Sign in",
             color=ft.colors.WHITE,
             bgcolor=ft.colors.PURPLE,
             width=280,
             on_click=self.signin_clicked,
         )
         self.register_text = ft.Text(
-            "",
             spans=[
+                ft.TextSpan(text="New to Streamlitify? "),
                 ft.TextSpan(
-                    text="", style=ft.TextStyle(color=ft.colors.BLACK)
-                ),
-                ft.TextSpan(
-                    text="",
+                    text="Register",
                     style=ft.TextStyle(color=ft.colors.PURPLE),
                     on_click=self.register_clicked,
                 ),
-            ],
+            ]
         )
         self.go_back_button = ft.TextButton(
-            text="",
+            text="Go back",
             on_click=self.go_back,
             style=ft.ButtonStyle(color=ft.colors.PURPLE),
         )
@@ -49,45 +49,9 @@ class SignInScreen(BaseScreen):
         self.app.show_screen("register")
 
     def signin_clicked(self, e):
-        # Здесь будет логика входа
-        # После успешного входа переход на главный экран
-        nickname = self.email_field.value.split("@")[
-            0
-        ]  # Или другой метод для получения никнейма
+        nickname = self.email_field.value.split("@")[0]
         self.app.username = nickname
         self.app.show_screen("mainmenu")
-
-    def update_texts(self):
-        self.signin_title.value = self.app.translations[self.app.language][
-            "signin"
-        ]
-        self.email_field.label = self.app.translations[self.app.language][
-            "email"
-        ]
-        self.password_field.label = self.app.translations[self.app.language][
-            "password"
-        ]
-        self.signin_button.text = self.app.translations[self.app.language][
-            "signin"
-        ]
-        self.register_text.spans = [
-            ft.TextSpan(
-                text=self.app.translations[self.app.language][
-                    "signin_link"
-                ].split("?")[0]
-                + "? "
-            ),
-            ft.TextSpan(
-                text=self.app.translations[self.app.language]["register_link"],
-                style=ft.TextStyle(color=ft.colors.PURPLE),
-                on_click=self.register_clicked,
-            ),
-        ]
-        self.go_back_button.text = self.app.translations[self.app.language][
-            "go_back"
-        ]
-        self.language_selector.value = self.app.language
-        self.page.update()
 
     def build(self):
         signin_container = ft.Container(
@@ -125,7 +89,7 @@ class SignInScreen(BaseScreen):
                 ),
                 ft.Row(
                     [
-                        self.language_selector,
+                        # Удален language_selector
                         ft.Container(expand=True),
                         self.theme_button,
                     ]

@@ -5,34 +5,33 @@ from init.basescreen import BaseScreen
 class TestScreen(BaseScreen):
     def __init__(self, page, app):
         super().__init__(page, app)
-        self.test_title = ft.Text("", size=30, weight=ft.FontWeight.BOLD)
-        self.options_text = ft.Text(
-            "", size=20, color=ft.colors.PURPLE
-        )  # Increased size
-        self.question = ft.Text("", size=22)  # Increased size
+        self.test_title = ft.Text("Test", size=30, weight=ft.FontWeight.BOLD)
+        self.options_text = ft.Text("Options:", size=20, color=ft.colors.PURPLE)
+        self.question = ft.Text("What is the primary purpose of the Streamlit framework?", size=22)
         self.option1_button = ft.ElevatedButton(
-            text="",
+            text="To build web applications for data science and machine learning",
             color=ft.colors.WHITE,
             bgcolor=ft.colors.PURPLE,
             width=500,
         )
         self.option2_button = ft.ElevatedButton(
-            text="",
+            text="To create static websites with HTML and CSS",
             color=ft.colors.WHITE,
             bgcolor=ft.colors.PURPLE,
             width=500,
         )
         self.option3_button = ft.ElevatedButton(
-            text="",
+            text="To manage databases and perform SQL queries",
             color=ft.colors.WHITE,
             bgcolor=ft.colors.PURPLE,
             width=500,
         )
         self.next_question_button = ft.TextButton(
-            text="", style=ft.ButtonStyle(color=ft.colors.PURPLE)
+            text="To the next question",
+            style=ft.ButtonStyle(color=ft.colors.PURPLE)
         )
         self.go_back_button = ft.TextButton(
-            text="",
+            text="Return to main menu",
             on_click=self.go_back,
             style=ft.ButtonStyle(color=ft.colors.PURPLE),
         )
@@ -46,60 +45,22 @@ class TestScreen(BaseScreen):
     def go_back(self, e):
         self.app.show_screen("mainmenu")
 
-    def update_texts(self):
-        self.test_title.value = self.app.translations[self.app.language][
-            "test"
-        ]
-        self.options_text.value = self.app.translations[self.app.language][
-            "options"
-        ]
-        self.question.value = self.app.translations[self.app.language][
-            "primary_purpose_question"
-        ]
-        self.option1_button.text = self.app.translations[self.app.language][
-            "primary_purpose_option1"
-        ]
-        self.option2_button.text = self.app.translations[self.app.language][
-            "primary_purpose_option2"
-        ]
-        self.option3_button.text = self.app.translations[self.app.language][
-            "primary_purpose_option3"
-        ]
-        self.next_question_button.text = self.app.translations[
-            self.app.language
-        ]["next_question"]
-        self.go_back_button.text = self.app.translations[self.app.language][
-            "return_to_main_menu"
-        ]
-        self.language_selector.value = self.app.language
-        self.page.update()
-
     def build(self):
         test_container = ft.Container(
             content=ft.Column(
                 [
                     self.test_title,
-                    ft.Text(
-                        self.app.translations[self.app.language][
-                            "choose_right_answer"
-                        ],
-                        size=20,
-                    ),
+                    ft.Text("Choose the right answer", size=20),
                     ft.Container(height=10),
-                    # Spacer to add some space between "Choose the right answer" and the question
                     ft.Row(
                         [self.question],
                         alignment=ft.MainAxisAlignment.CENTER,
-                    ),  # Centered question
-                    ft.Container(
-                        height=30
-                    ),  # Spacer to add some space between the question and the "Options" label
+                    ),
+                    ft.Container(height=30),
                     ft.Column(
                         [
-                            self.options_text,  # "Options:" label
-                            ft.Container(
-                                height=10
-                            ),  # Spacer to add some space between Options label and buttons
+                            self.options_text,
+                            ft.Container(height=10),
                             ft.Row(
                                 [self.option1_button],
                                 alignment=ft.MainAxisAlignment.CENTER,
@@ -125,7 +86,7 @@ class TestScreen(BaseScreen):
             border_radius=10,
             border=ft.border.all(color=ft.colors.PURPLE, width=2),
             padding=20,
-            expand=True,  # <--- Added expand=True
+            expand=True,
             width=650,
             height=500,
         )
@@ -146,7 +107,6 @@ class TestScreen(BaseScreen):
                 ),
                 ft.Row(
                     [
-                        self.language_selector,
                         ft.Container(expand=True),
                         self.theme_button,
                     ]

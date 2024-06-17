@@ -10,47 +10,6 @@ Welcome to **Streamlitify**, an educational application designed to help you lea
 - **Multi-language Support**: Easily switch between different languages to learn in your preferred language.
 - **User-Friendly Interface**: A clean and intuitive interface that makes learning enjoyable and efficient.
 
-## Getting Started
-
-### Prerequisites
-
-- Python 3.7 or higher
-- pip (Python package installer)
-
-### Installation
-
-If you want to try your skills with Streamlit framework, you can install required packages using pip:
-   ```sh
-    pip install streamlit pandas numpy
-   ```
-   
-## Usage
-
-Once the application is running, you will be greeted with the main menu of Streamlitify. From here, you can choose different sections to start learning:
-
-- **Theory**: Learn the concepts and features of Streamlit.
-- **Test**: Complete tests as you learn theory.
-- **Simulator**: Test your skills with simulator.
-
-## Application Structure
-
-The project structure is organized as follows:
-
-```
-Streamlitify/
-│
-├── basescreen.py         # Base screen class
-├── main.py               # Main application file
-├── mainmenu.py           # Main menu screen
-├── mainscreen.py         # Main content screen
-├── register.py           # Registration screen
-├── signin.py             # Sign-in screen
-├── simulator.py          # Code simulator screen
-├── test.py               # Test screen for exercises
-├── theory.py             # Theory content screen
-└── README.md             # This README file
-```
-
 ## Contributing
 
 Contributions are welcome! If you have suggestions for improvements or find any bugs, feel free to open an issue or create a pull request.
