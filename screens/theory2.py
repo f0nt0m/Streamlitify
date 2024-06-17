@@ -60,15 +60,15 @@ class TheoryScreen2(BaseScreen):
             bgcolor=ft.colors.BLACK,
             padding=10,
             border_radius=5,
-            margin=ft.margin.symmetric(vertical=0),
+            margin=ft.margin.symmetric(vertical=5),  # Добавлен вертикальный отступ между блоками
         )
 
     def build(self):
         content = [
-            ft.Text("Streamlit Components and Features\n\n", size=16),
+            ft.Text("Streamlit Components and Features\n", size=16),
             ft.Text("Streamlit provides a variety of components to build interactive and rich applications. "
-                    "Below are some of the core components and their usage examples.\n\n", size=16),
-            ft.Text("Displaying Text\n\n", size=16),
+                    "Below are some of the core components and their usage examples.\n", size=16),
+            ft.Text("Displaying Text\n", size=16),
             self.create_code_block(
                 "import streamlit as st\n\n"
                 'st.title("Streamlit App")\n'
@@ -76,8 +76,8 @@ class TheoryScreen2(BaseScreen):
                 'st.subheader("This is a subheader")\n'
                 'st.text("This is a simple text")'
             ),
-            ft.Text("\nInteractive Widgets\n\n", size=16),
-            ft.Text("Streamlit offers various widgets to interact with the user. Here are some examples:\n\n", size=16),
+            ft.Text("\nInteractive Widgets\n", size=16),
+            ft.Text("Streamlit offers various widgets to interact with the user. Here are some examples:\n", size=16),
             self.create_code_block(
                 "import streamlit as st\n\n"
                 'if st.button("Click me"):\n'
@@ -87,7 +87,7 @@ class TheoryScreen2(BaseScreen):
                 'age = st.slider("Select your age", 0, 100)\n'
                 'st.write(f"You are {age} years old")'
             ),
-            ft.Text("\nDisplaying Data\n\n", size=16),
+            ft.Text("\nDisplaying Data\n", size=16),
             self.create_code_block(
                 "import streamlit as st\n"
                 "import pandas as pd\n\n"
@@ -102,8 +102,8 @@ class TheoryScreen2(BaseScreen):
                 "st.write('Table:')\n"
                 "st.table(df)"
             ),
-            ft.Text("\nVisualizing Data\n\n", size=16),
-            ft.Text("Streamlit supports various libraries for data visualization. Here are a few examples using Matplotlib and Plotly:\n\n", size=16),
+            ft.Text("\nVisualizing Data\n", size=16),
+            ft.Text("Streamlit supports various libraries for data visualization. Here are a few examples using Matplotlib and Plotly:\n", size=16),
             self.create_code_block(
                 "import streamlit as st\n"
                 "import matplotlib.pyplot as plt\n"
@@ -115,6 +115,7 @@ class TheoryScreen2(BaseScreen):
                 "ax.plot(x, y)\n\n"
                 "st.pyplot(fig)"
             ),
+            ft.Container(height=10),  # Добавлен отступ между блоками
             self.create_code_block(
                 "import streamlit as st\n"
                 "import plotly.express as px\n\n"
@@ -149,7 +150,7 @@ class TheoryScreen2(BaseScreen):
                     ),
                     self.next_topic_button,
                 ],
-                spacing=0,
+                spacing=10,
                 alignment=ft.MainAxisAlignment.CENTER,
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
             ),

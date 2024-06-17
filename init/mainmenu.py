@@ -5,11 +5,15 @@ from init.basescreen import BaseScreen
 class MainMenuScreen(BaseScreen):
     def __init__(self, page, app):
         super().__init__(page, app)
-        self.username = app.username  # Получаем никнейм пользователя
         self.signout_button = ft.TextButton(
             text="Sign out",
             on_click=self.signout,
             style=ft.ButtonStyle(color=ft.colors.PURPLE),
+        )
+        self.profile_button = ft.IconButton(
+            icon=ft.icons.ACCOUNT_CIRCLE,
+            icon_color=ft.colors.PURPLE,
+            on_click=self.profile_clicked,
         )
         self.menu_title = ft.Text(f"Main Menu", size=30, weight=ft.FontWeight.BOLD)
         self.menu_subtitle = ft.Text(f"Select from the list below:", size=20)
@@ -41,19 +45,12 @@ class MainMenuScreen(BaseScreen):
             color=ft.colors.PURPLE,
         )
 
-        self.greeting_text = ft.Text(
-            spans=[
-                ft.TextSpan(text=f"You have signed in as "),
-                ft.TextSpan(
-                    text=f"{self.username}",
-                    style=ft.TextStyle(color=ft.colors.PURPLE),
-                ),
-            ],
-            text_align=ft.TextAlign.CENTER,
-        )
-
     def signout(self, e):
+        self.app.screens["signin"].clear_fields()  # Очищаем поля ввода на экране входа
         self.app.show_screen("main")
+
+    def profile_clicked(self, e):
+        self.app.show_screen("profile")
 
     def test_clicked(self, e):
         self.app.show_screen("test1")
@@ -94,20 +91,17 @@ class MainMenuScreen(BaseScreen):
                     ]
                 ),
                 ft.Container(
-                    height=20,
-                    alignment=ft.alignment.center,
-                    content=self.greeting_text,
-                ),
-                ft.Container(
                     content=main_menu_container,
                     alignment=ft.alignment.center,
                     expand=True,
                 ),
                 ft.Row(
                     [
+                        self.profile_button,  # Кнопка профиля
                         ft.Container(expand=True),
                         self.theme_button,
-                    ]
+                    ],
+                    alignment=ft.MainAxisAlignment.SPACE_BETWEEN
                 ),
             ],
             expand=True,

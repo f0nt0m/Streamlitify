@@ -64,30 +64,30 @@ class TheoryScreen1(BaseScreen):
             bgcolor=ft.colors.BLACK,
             padding=10,
             border_radius=5,
-            margin=ft.margin.symmetric(vertical=0),
+            margin=ft.margin.symmetric(vertical=5),  # Добавлен вертикальный отступ между блоками
         )
 
     def build(self):
         content = [
-            ft.Text("Introduction to Streamlit\n\n", size=16),
+            ft.Text("Introduction to Streamlit\n", size=16),
             ft.Text("Streamlit is an open-source app framework for Machine Learning and Data Science projects. "
-                    "It allows you to create beautiful, custom web apps for machine learning and data science with minimal effort.\n\n", size=16),
-            ft.Text("Key Features:\n\n", size=16),
+                    "It allows you to create beautiful, custom web apps for machine learning and data science with minimal effort.\n", size=16),
+            ft.Text("Key Features:\n", size=16),
             ft.Text("Easy to Use: Streamlit’s simple API allows you to build interactive applications with just a few lines of Python code.\n"
                     "Interactive Widgets: Streamlit offers a variety of widgets that make it easy to add interactivity to your apps.\n"
                     "Real-Time Updates: Streamlit automatically updates your app in real-time as you modify your code, enabling a seamless development experience.\n"
                     "Visualization: It supports all the major visualization libraries such as Matplotlib, Plotly, and Altair, making it easy to create dynamic visualizations.\n"
-                    "Deployment: Streamlit apps can be easily shared and deployed using Streamlit Cloud or other hosting services.\n\n", size=16),
-            ft.Text("Getting Started:\n\n", size=16),
-            ft.Text("Installation: You can install Streamlit using pip:\n\n", size=16),
+                    "Deployment: Streamlit apps can be easily shared and deployed using Streamlit Cloud or other hosting services.\n", size=16),
+            ft.Text("Getting Started:\n", size=16),
+            ft.Text("Installation: You can install Streamlit using pip:\n", size=16),
             self.create_code_block("pip install streamlit"),
-            ft.Text("\nCreating Your First App: Start with a simple \"Hello, World!\" app. Create a new Python file and add:\n\n", size=16),
+            ft.Text("\nCreating Your First App: Start with a simple \"Hello, World!\" app. Create a new Python file and add:\n", size=16),
             self.create_code_block(
                 "import streamlit as st\n\n"
                 'st.title("Hello, Streamlit!")\n'
                 'st.write("This is your first Streamlit app.")'
             ),
-            ft.Text("\nRunning the App: Run your app using the command: \n\n", size=16),
+            ft.Text("\nRunning the App: Run your app using the command: \n", size=16),
             self.create_code_block("streamlit run your_script.py"),
             ft.Text("\nStreamlit helps you turn data scripts into shareable web apps in minutes, making it an invaluable tool for data scientists and machine learning engineers.", size=16),
         ]

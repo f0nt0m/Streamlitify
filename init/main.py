@@ -3,6 +3,7 @@ from init.mainscreen import MainScreen
 from init.signin import SignInScreen
 from init.register import RegisterScreen
 from init.mainmenu import MainMenuScreen
+from init.profile import ProfileScreen
 from screens.test1 import TestScreen
 from screens.theory1 import TheoryScreen1
 from screens.theory2 import TheoryScreen2
@@ -13,7 +14,8 @@ class StreamlitLearnApp:
     def __init__(self):
         self.page = None
         self.theme_mode = ft.ThemeMode.SYSTEM
-        self.username = "username"
+        self.login = None
+        self.email = None
         self.screens = {}
 
     def main(self, page: ft.Page):
@@ -28,6 +30,7 @@ class StreamlitLearnApp:
         self.screens["signin"] = SignInScreen(page, self)
         self.screens["register"] = RegisterScreen(page, self)
         self.screens["mainmenu"] = MainMenuScreen(page, self)
+        self.screens["profile"] = ProfileScreen(page, self)
         self.screens["test1"] = TestScreen(page, self)
         self.screens["theory1"] = TheoryScreen1(page, self)
         self.screens["theory2"] = TheoryScreen2(page, self)

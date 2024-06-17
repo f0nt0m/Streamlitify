@@ -1,15 +1,15 @@
 import flet as ft
 from init.basescreen import BaseScreen
+from init.database import UserDatabase
 
 
 class RegisterScreen(BaseScreen):
     def __init__(self, page, app):
         super().__init__(page, app)
-        self.register_title = ft.Text(
-            "Register", size=30, weight=ft.FontWeight.BOLD
-        )
-        self.nickname_field = ft.TextField(label="Nickname", width=280)
-        self.email_field = ft.TextField(label="Email or login", width=280)
+        self.db = UserDatabase()
+        self.register_title = ft.Text("Register", size=30, weight=ft.FontWeight.BOLD)
+        self.login_field = ft.TextField(label="Login", width=280)
+        self.email_field = ft.TextField(label="Email", width=280)
         self.password_field = ft.TextField(
             label="Password",
             password=True,
@@ -39,16 +39,37 @@ class RegisterScreen(BaseScreen):
         self.app.show_screen("signin")
 
     def register_clicked(self, e):
-        nickname = self.nickname_field.value
-        self.app.username = nickname
-        self.app.show_screen("mainmenu")
+        login = self.login_field.value
+        email = self.email_field.value
+        password = self.password_field.value
+
+        if not self.db.validate_password(password):
+            self.page.snack_bar = ft.SnackBar(ft.Text("Password must be at least 8 characters long"))
+            self.page.snack_bar.open = True
+            self.page.update()
+            return
+
+        if self.db.user_exists(email):
+            self.page.snack_bar = ft.SnackBar(ft.Text("User with this email already exists"))
+            self.page.snack_bar.open = True
+            self.page.update()
+            return
+
+        if self.db.add_user(login, email, password):
+            self.app.login = login
+            self.app.email = email
+            self.app.show_screen("mainmenu")
+        else:
+            self.page.snack_bar = ft.SnackBar(ft.Text("Failed to register user"))
+            self.page.snack_bar.open = True
+            self.page.update()
 
     def build(self):
         register_container = ft.Container(
             content=ft.Column(
                 [
                     self.register_title,
-                    self.nickname_field,
+                    self.login_field,
                     self.email_field,
                     self.password_field,
                     self.register_button,
@@ -79,7 +100,6 @@ class RegisterScreen(BaseScreen):
                 ),
                 ft.Row(
                     [
-                        # Удален language_selector
                         ft.Container(expand=True),
                         self.theme_button,
                     ]

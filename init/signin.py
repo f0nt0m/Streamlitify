@@ -1,12 +1,14 @@
 import flet as ft
 from init.basescreen import BaseScreen
+from init.database import UserDatabase
 
 
 class SignInScreen(BaseScreen):
     def __init__(self, page, app):
         super().__init__(page, app)
+        self.db = UserDatabase()
         self.signin_title = ft.Text("Sign in", size=30, weight=ft.FontWeight.BOLD)
-        self.email_field = ft.TextField(label="Email or login", width=280)
+        self.login_field = ft.TextField(label="Login or email", width=280)
         self.password_field = ft.TextField(
             label="Password",
             password=True,
@@ -49,16 +51,29 @@ class SignInScreen(BaseScreen):
         self.app.show_screen("register")
 
     def signin_clicked(self, e):
-        nickname = self.email_field.value.split("@")[0]
-        self.app.username = nickname
-        self.app.show_screen("mainmenu")
+        login_or_email = self.login_field.value
+        password = self.password_field.value
+        if self.db.authenticate_user(login_or_email, password):
+            user_data = self.db.get_user_data(login_or_email)
+            self.app.login = user_data["login"]
+            self.app.email = user_data["email"]
+            self.app.show_screen("mainmenu")
+        else:
+            self.page.snack_bar = ft.SnackBar(ft.Text("Invalid credentials"))
+            self.page.snack_bar.open = True
+            self.page.update()
+
+    def clear_fields(self):
+        self.login_field.value = ""
+        self.password_field.value = ""
+        self.page.update()
 
     def build(self):
         signin_container = ft.Container(
             content=ft.Column(
                 [
                     self.signin_title,
-                    self.email_field,
+                    self.login_field,
                     self.password_field,
                     self.signin_button,
                     self.register_text,
@@ -89,7 +104,6 @@ class SignInScreen(BaseScreen):
                 ),
                 ft.Row(
                     [
-                        # Удален language_selector
                         ft.Container(expand=True),
                         self.theme_button,
                     ]
