@@ -7,6 +7,7 @@ from init.profile import ProfileScreen
 from screens.test1 import TestScreen1
 from screens.theory1 import TheoryScreen1
 from screens.theory2 import TheoryScreen2
+from screens.theory3 import TheoryScreen3
 from screens.simulator1 import SimulatorScreen1
 
 
@@ -34,6 +35,7 @@ class StreamlitLearnApp:
         self.screens["test1"] = TestScreen1(page, self)
         self.screens["theory1"] = TheoryScreen1(page, self)
         self.screens["theory2"] = TheoryScreen2(page, self)
+        self.screens["theory3"] = TheoryScreen3(page, self)
         self.screens["simulator1"] = SimulatorScreen1(page, self)
 
         self.show_screen("main")
