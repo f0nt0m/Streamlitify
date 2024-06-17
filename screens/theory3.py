@@ -1,5 +1,7 @@
 import flet as ft
+import json
 from init.basescreen import BaseScreen
+
 
 class TheoryScreen3(BaseScreen):
     def __init__(self, page, app):
@@ -24,6 +26,7 @@ class TheoryScreen3(BaseScreen):
             color=ft.colors.PURPLE,
         )
         self.scroll_container = None
+        self.load_theory_content()
 
     def go_back(self, e):
         self.app.show_screen("mainmenu")
@@ -62,51 +65,22 @@ class TheoryScreen3(BaseScreen):
             margin=ft.margin.symmetric(vertical=5),  # Добавлен вертикальный отступ между блоками
         )
 
-    def build(self):
-        content = [
-            ft.Text("Advanced Streamlit Features\n", size=16),
-            ft.Text("In this section, we'll cover some of the more advanced features of Streamlit.\n", size=16),
-            ft.Text("Caching\n", size=16),
-            ft.Text("Streamlit's caching mechanism allows you to store expensive computations so that they don't need to be re-run every time your script is executed. Use the @st.cache decorator to cache a function's output:\n", size=16),
-            self.create_code_block(
-                "import streamlit as st\n"
-                "import time\n\n"
-                "@st.cache\n"
-                "def expensive_computation(a, b):\n"
-                "    time.sleep(2)\n"
-                "    return a * b\n\n"
-                "result = expensive_computation(2, 3)\n"
-                'st.write("Result:", result)'
-            ),
-            ft.Text("\nCustom Components\n", size=16),
-            ft.Text("You can create your own custom components in Streamlit using the streamlit.components.v1 module. This allows you to embed custom HTML, CSS, and JavaScript code directly into your Streamlit apps:\n", size=16),
-            self.create_code_block(
-                "import streamlit as st\n"
-                "import streamlit.components.v1 as components\n\n"
-                "# Define your custom component\n"
-                "def custom_component(html_code):\n"
-                "    components.html(html_code)\n\n"
-                "# Use the custom component in your app\n"
-                'custom_component("<h1 style=\'color:red;\'>Hello, World!</h1>")'
-            ),
-            ft.Text("\nSession State\n", size=16),
-            ft.Text("Streamlit provides a way to persist data across different runs of your script with session state. This can be useful for keeping track of user input or other stateful information:\n", size=16),
-            self.create_code_block(
-                "import streamlit as st\n\n"
-                "# Initialize state\n"
-                "if 'counter' not in st.session_state:\n"
-                "    st.session_state.counter = 0\n\n"
-                "# Increment counter\n"
-                "if st.button('Increment'):\n"
-                "    st.session_state.counter += 1\n\n"
-                'st.write("Counter value:", st.session_state.counter)'
-            ),
-            ft.Text("\nThese advanced features can help you build more powerful and interactive Streamlit applications.", size=16),
-        ]
+    def load_theory_content(self):
+        with open("theory.json", "r") as file:
+            theory_data = json.load(file)["theory3"]
+
+        content = []
+        for item in theory_data:
+            if item.startswith("CODE:"):
+                content.append(self.create_code_block(item[5:]))
+            else:
+                content.append(ft.Text(item, size=16))
+            content.append(ft.Container(height=10))  # Добавляем отступ
 
         self.theory_text.controls.clear()
         self.theory_text.controls.extend(content)
 
+    def build(self):
         self.scroll_container = ft.Container(
             content=ft.Column(
                 [

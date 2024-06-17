@@ -1,4 +1,5 @@
 import flet as ft
+import json
 from init.basescreen import BaseScreen
 
 
@@ -12,6 +13,7 @@ class TheoryScreen2(BaseScreen):
             color=ft.colors.WHITE,
             bgcolor=ft.colors.PURPLE,
             width=200,
+            on_click=self.go_to_next_topic
         )
         self.go_back_button = ft.TextButton(
             text="Return to main menu",
@@ -25,9 +27,13 @@ class TheoryScreen2(BaseScreen):
             color=ft.colors.PURPLE,
         )
         self.scroll_container = None
+        self.load_theory_content()
 
     def go_back(self, e):
         self.app.show_screen("mainmenu")
+
+    def go_to_next_topic(self, e):
+        self.app.show_screen("theory3")
 
     def copy_to_clipboard(self, e, text):
         self.page.set_clipboard(text)
@@ -63,72 +69,22 @@ class TheoryScreen2(BaseScreen):
             margin=ft.margin.symmetric(vertical=5),  # Добавлен вертикальный отступ между блоками
         )
 
-    def build(self):
-        content = [
-            ft.Text("Streamlit Components and Features\n", size=16),
-            ft.Text("Streamlit provides a variety of components to build interactive and rich applications. "
-                    "Below are some of the core components and their usage examples.\n", size=16),
-            ft.Text("Displaying Text\n", size=16),
-            self.create_code_block(
-                "import streamlit as st\n\n"
-                'st.title("Streamlit App")\n'
-                'st.header("This is a header")\n'
-                'st.subheader("This is a subheader")\n'
-                'st.text("This is a simple text")'
-            ),
-            ft.Text("\nInteractive Widgets\n", size=16),
-            ft.Text("Streamlit offers various widgets to interact with the user. Here are some examples:\n", size=16),
-            self.create_code_block(
-                "import streamlit as st\n\n"
-                'if st.button("Click me"):\n'
-                '    st.write("Button clicked!")\n\n'
-                'name = st.text_input("Enter your name")\n'
-                'st.write(f"Hello, {name}!")\n\n'
-                'age = st.slider("Select your age", 0, 100)\n'
-                'st.write(f"You are {age} years old")'
-            ),
-            ft.Text("\nDisplaying Data\n", size=16),
-            self.create_code_block(
-                "import streamlit as st\n"
-                "import pandas as pd\n\n"
-                "data = {\n"
-                "    'Name': ['John', 'Anna', 'Peter'],\n"
-                "    'Age': [28, 24, 35],\n"
-                "    'City': ['New York', 'Paris', 'Berlin']\n"
-                "}\n\n"
-                "df = pd.DataFrame(data)\n\n"
-                "st.write('DataFrame:')\n"
-                "st.dataframe(df)\n\n"
-                "st.write('Table:')\n"
-                "st.table(df)"
-            ),
-            ft.Text("\nVisualizing Data\n", size=16),
-            ft.Text("Streamlit supports various libraries for data visualization. Here are a few examples using Matplotlib and Plotly:\n", size=16),
-            self.create_code_block(
-                "import streamlit as st\n"
-                "import matplotlib.pyplot as plt\n"
-                "import numpy as np\n\n"
-                "# Matplotlib example\n"
-                "x = np.linspace(0, 10, 100)\n"
-                "y = np.sin(x)\n\n"
-                "fig, ax = plt.subplots()\n"
-                "ax.plot(x, y)\n\n"
-                "st.pyplot(fig)"
-            ),
-            ft.Container(height=10),  # Добавлен отступ между блоками
-            self.create_code_block(
-                "import streamlit as st\n"
-                "import plotly.express as px\n\n"
-                "# Plotly example\n"
-                "df = px.data.iris()\n"
-                "fig = px.scatter(df, x='sepal_width', y='sepal_length', color='species')\n\n"
-                "st.plotly_chart(fig)"
-            ),
-        ]
+    def load_theory_content(self):
+        with open("theory.json", "r") as file:
+            theory_data = json.load(file)["theory2"]
+
+        content = []
+        for item in theory_data:
+            if item.startswith("CODE:"):
+                content.append(self.create_code_block(item[5:]))
+            else:
+                content.append(ft.Text(item, size=16))
+            content.append(ft.Container(height=10))  # Добавляем отступ
 
         self.theory_text.controls.clear()
         self.theory_text.controls.extend(content)
 
+    def build(self):
         self.scroll_container = ft.Container(
             content=ft.Column(
                 [

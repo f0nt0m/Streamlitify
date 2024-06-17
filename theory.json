@@ -1,0 +1,49 @@
+{
+  "theory1": [
+    "Introduction to Streamlit",
+    "Streamlit is an open-source app framework for Machine Learning and Data Science projects. It allows you to create beautiful, custom web apps for machine learning and data science with minimal effort.",
+    "Key Features:",
+    "Easy to Use: Streamlit’s simple API allows you to build interactive applications with just a few lines of Python code.",
+    "Interactive Widgets: Streamlit offers a variety of widgets that make it easy to add interactivity to your apps.",
+    "Real-Time Updates: Streamlit automatically updates your app in real-time as you modify your code, enabling a seamless development experience.",
+    "Visualization: It supports all the major visualization libraries such as Matplotlib, Plotly, and Altair, making it easy to create dynamic visualizations.",
+    "Deployment: Streamlit apps can be easily shared and deployed using Streamlit Cloud or other hosting services.",
+    "Getting Started:",
+    "Installation: You can install Streamlit using pip:",
+    "CODE:pip install streamlit",
+    "Creating Your First App: Start with a simple 'Hello, World!' app. Create a new Python file and add:",
+    "CODE:import streamlit as st\n\nst.title('Hello, Streamlit!')\nst.write('This is your first Streamlit app.')",
+    "Running the App: Run your app using the command:",
+    "CODE:streamlit run your_script.py",
+    "Streamlit helps you turn data scripts into shareable web apps in minutes, making it an invaluable tool for data scientists and machine learning engineers."
+  ],
+  "theory2": [
+    "Streamlit Components and Features",
+    "Streamlit provides a variety of components to build interactive and rich applications. Below are some of the core components and their usage examples.",
+    "Displaying Text",
+    "CODE:import streamlit as st\n\nst.title('Streamlit App')\nst.header('This is a header')\nst.subheader('This is a subheader')\nst.text('This is a simple text')",
+    "Interactive Widgets",
+    "Streamlit offers various widgets to interact with the user. Here are some examples:",
+    "CODE:import streamlit as st\n\nif st.button('Click me'):\n    st.write('Button clicked!')\n\nname = st.text_input('Enter your name')\nst.write(f'Hello, {name}!')\n\nage = st.slider('Select your age', 0, 100)\nst.write(f'You are {age} years old')",
+    "Displaying Data",
+    "CODE:import streamlit as st\nimport pandas as pd\n\ndata = {\n    'Name': ['John', 'Anna', 'Peter'],\n    'Age': [28, 24, 35],\n    'City': ['New York', 'Paris', 'Berlin']\n}\n\ndf = pd.DataFrame(data)\n\nst.write('DataFrame:')\nst.dataframe(df)\n\nst.write('Table:')\nst.table(df)",
+    "Visualizing Data",
+    "Streamlit supports various libraries for data visualization. Here are a few examples using Matplotlib and Plotly:",
+    "CODE:import streamlit as st\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Matplotlib example\nx = np.linspace(0, 10, 100)\ny = np.sin(x)\n\nfig, ax = plt.subplots()\nax.plot(x, y)\n\nst.pyplot(fig)",
+    "CODE:import streamlit as st\nimport plotly.express as px\n\n# Plotly example\ndf = px.data.iris()\nfig = px.scatter(df, x='sepal_width', y='sepal_length', color='species')\n\nst.plotly_chart(fig)"
+  ],
+  "theory3": [
+    "Advanced Streamlit Features",
+    "In this section, we'll cover some of the more advanced features of Streamlit.",
+    "Caching",
+    "Streamlit's caching mechanism allows you to store expensive computations so that they don't need to be re-run every time your script is executed. Use the @st.cache decorator to cache a function's output:",
+    "CODE:import streamlit as st\nimport time\n\n@st.cache\ndef expensive_computation(a, b):\n    time.sleep(2)\n    return a * b\n\nresult = expensive_computation(2, 3)\nst.write('Result:', result)",
+    "Custom Components",
+    "You can create your own custom components in Streamlit using the streamlit.components.v1 module. This allows you to embed custom HTML, CSS, and JavaScript code directly into your Streamlit apps:",
+    "CODE:import streamlit as st\nimport streamlit.components.v1 as components\n\n# Define your custom component\ndef custom_component(html_code):\n    components.html(html_code)\n\n# Use the custom component in your app\ncustom_component(\"<h1 style='color:red;'>Hello, World!</h1>\")",
+    "Session State",
+    "Streamlit provides a way to persist data across different runs of your script with session state. This can be useful for keeping track of user input or other stateful information:",
+    "CODE:import streamlit as st\n\n# Initialize state\nif 'counter' not in st.session_state:\n    st.session_state.counter = 0\n\n# Increment counter\nif st.button('Increment'):\n    st.session_state.counter += 1\n\nst.write('Counter value:', st.session_state.counter)",
+    "These advanced features can help you build more powerful and interactive Streamlit applications."
+  ]
+}
