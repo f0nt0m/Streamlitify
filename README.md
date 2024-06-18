@@ -11,7 +11,6 @@ The app is currently under development, with updates coming out every day.
 If you have any questions or feedback, please feel free to reach me out:
 
 - **[Telegram](https://t.me/f0ntt0m)**
-- **[GitHub](https://github.com/f0nt0m)**
 
 ---
 
