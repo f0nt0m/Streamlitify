@@ -1,0 +1,345 @@
+{
+    "test": [
+        {
+            "title": "Test",
+            "question": "What is the primary purpose of the Streamlit framework?",
+            "options": [
+                "To build web applications for data science and machine learning",
+                "To create static websites with HTML and CSS",
+                "To manage databases and perform SQL queries"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which of the following is used to create a title in a Streamlit app?",
+            "options": [
+                "st.header()",
+                "st.title()",
+                "st.write()"
+            ],
+            "correct_option": 1,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which feature allows Streamlit apps to update in real-time as you modify your code?",
+            "options": [
+                "Interactive Widgets",
+                "Real-Time Updates",
+                "Visualization Support"
+            ],
+            "correct_option": 1,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which visualization libraries are supported by Streamlit?",
+            "options": [
+                "Matplotlib, Plotly, and Altair",
+                "Only Matplotlib",
+                "None"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which command is used to install Streamlit?",
+            "options": [
+                "pip install streamlit",
+                "conda install streamlit",
+                "npm install streamlit"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which Streamlit method is used to create a simple 'Hello, World!' app?",
+            "options": [
+                "st.header()",
+                "st.title()",
+                "st.write()"
+            ],
+            "correct_option": 1,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "How do you run a Streamlit app?",
+            "options": [
+                "streamlit run your_script.py",
+                "python your_script.py",
+                "streamlit start your_script.py"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "What is the main advantage of using Streamlit for data scientists and machine learning engineers?",
+            "options": [
+                "Creating interactive applications",
+                "Building static websites",
+                "Managing databases"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which component is used to create a header in Streamlit?",
+            "options": [
+                "st.title()",
+                "st.header()",
+                "st.text()"
+            ],
+            "correct_option": 1,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which function is used to display a simple text in Streamlit?",
+            "options": [
+                "st.header()",
+                "st.title()",
+                "st.text()"
+            ],
+            "correct_option": 2,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which Streamlit component can be used to create an interactive button?",
+            "options": [
+                "st.button()",
+                "st.slider()",
+                "st.text_input()"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "How do you create a text input field in Streamlit?",
+            "options": [
+                "st.input()",
+                "st.text_input()",
+                "st.text()"
+            ],
+            "correct_option": 1,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which Streamlit component is used to create a slider?",
+            "options": [
+                "st.button()",
+                "st.text_input()",
+                "st.slider()"
+            ],
+            "correct_option": 2,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which component is used to display a DataFrame in Streamlit?",
+            "options": [
+                "st.table()",
+                "st.dataframe()",
+                "Both st.table() and st.dataframe()"
+            ],
+            "correct_option": 2,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which of the following libraries can be used to create plots in Streamlit?",
+            "options": [
+                "Matplotlib",
+                "Plotly",
+                "Both Matplotlib and Plotly"
+            ],
+            "correct_option": 2,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which of the following is a correct example of using Matplotlib with Streamlit?",
+            "options": [
+                "import streamlit as st, import matplotlib.pyplot as plt, import numpy as np, x = np.linspace(0, 10, 100), y = np.sin(x), fig, ax = plt.subplots(), ax.plot(x, y), st.pyplot(fig)",
+                "import streamlit as st, import matplotlib.pyplot as plt, x = range(10), y = [i**2 for i in x], st.plot(x, y)",
+                "import streamlit as st, import matplotlib.pyplot as plt, x = range(10), y = [i**2 for i in x], st.plotly_chart(plt.plot(x, y))"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which function is used to display Plotly charts in Streamlit?",
+            "options": [
+                "st.plot()",
+                "st.plotly_chart()",
+                "st.pyplot()"
+            ],
+            "correct_option": 1,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "What is the purpose of Streamlit's caching mechanism?",
+            "options": [
+                "To store data permanently",
+                "To store expensive computations so they don't need to be re-run",
+                "To create interactive widgets"
+            ],
+            "correct_option": 1,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "How do you cache a function's output in Streamlit?",
+            "options": [
+                "Using the @st.cache decorator",
+                "Using the st.cache() function",
+                "Using the @cache decorator"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which module is used to create custom components in Streamlit?",
+            "options": [
+                "streamlit.custom",
+                "streamlit.components.v1",
+                "streamlit.html"
+            ],
+            "correct_option": 1,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "How do you create a custom HTML component in Streamlit?",
+            "options": [
+                "import streamlit as st, import streamlit.components.v1 as components, components.html('<h1>Hello, World!</h1>')",
+                "import streamlit as st, import streamlit.html as html, html('<h1>Hello, World!</h1>')",
+                "import streamlit as st, import streamlit.components.v1 as components, components.markdown('<h1>Hello, World!</h1>')"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "What is Streamlit's Session State used for?",
+            "options": [
+                "To store data permanently",
+                "To persist data across different runs of the script",
+                "To create interactive widgets"
+            ],
+            "correct_option": 1,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "How do you initialize a counter in Streamlit's Session State?",
+            "options": [
+                "import streamlit as st, if 'counter' not in st.session_state:, st.session_state.counter = 0",
+                "import streamlit as st, if 'counter' not in st.session:, st.session.counter = 0",
+                "import streamlit as st, if 'counter' not in st.state:, st.state.counter = 0"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which function increments a counter in Streamlit's Session State?",
+            "options": [
+                "import streamlit as st, if st.button('Increment'): st.state.counter += 1",
+                "import streamlit as st, if st.button('Increment'): st.session.counter += 1",
+                "import streamlit as st, if st.button('Increment'): st.session_state.counter += 1"
+            ],
+            "correct_option": 2,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which method is used to display the counter value in Streamlit's Session State?",
+            "options": [
+                "st.write('Counter value:', st.state.counter)",
+                "st.write('Counter value:', st.session_state.counter)",
+                "st.write('Counter value:', st.session.counter)"
+            ],
+            "correct_option": 1,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "What is the purpose of the @st.cache_data decorator in Streamlit?",
+            "options": [
+                "To cache data",
+                "To create interactive widgets",
+                "To store data permanently"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which function is used to display the value of a cached computation in Streamlit?",
+            "options": [
+                "st.write('Cached value:', result)",
+                "st.write('Cached value:', st.cache_data.result)",
+                "st.write('Cached value:', st.state.result)"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "How do you create a button in Streamlit that triggers a function when clicked?",
+            "options": [
+                "import streamlit as st, if st.button('Click me'): st.write('Button clicked!')",
+                "import streamlit as st, st.button('Click me', on_click=function)",
+                "import streamlit as st, st.button('Click me', trigger=function)"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which Streamlit component is used to create a sidebar?",
+            "options": [
+                "st.sidebar()",
+                "st.sidebar_component()",
+                "st.sidebar.title()"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "How do you add a title to the sidebar in Streamlit?",
+            "options": [
+                "import streamlit as st, st.sidebar().title('Sidebar Title')",
+                "import streamlit as st, st.sidebar.title('Sidebar Title')",
+                "import streamlit as st, st.sidebar.header('Sidebar Title')"
+            ],
+            "correct_option": 1,
+            "instruction": "Choose the right answer"
+        },
+        {
+            "title": "Test",
+            "question": "Which function is used to create a multi-select dropdown in the Streamlit sidebar?",
+            "options": [
+                "st.sidebar.multiselect()",
+                "st.sidebar.select()",
+                "st.sidebar.dropdown()"
+            ],
+            "correct_option": 0,
+            "instruction": "Choose the right answer"
+        }
+    ]
+}

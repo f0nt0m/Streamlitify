@@ -40,10 +40,42 @@
     "CODE:import streamlit as st\nimport time\n\n@st.cache\ndef expensive_computation(a, b):\n    time.sleep(2)\n    return a * b\n\nresult = expensive_computation(2, 3)\nst.write('Result:', result)",
     "Custom Components",
     "You can create your own custom components in Streamlit using the streamlit.components.v1 module. This allows you to embed custom HTML, CSS, and JavaScript code directly into your Streamlit apps:",
-    "CODE:import streamlit as st\nimport streamlit.components.v1 as components\n\n# Define your custom component\ndef custom_component(html_code):\n    components.html(html_code)\n\n# Use the custom component in your app\ncustom_component(\"<h1 style='color:red;'>Hello, World!</h1>\")",
+    "CODE:import streamlit as st\nimport streamlit.components.v1 as components\n\n# Define your custom component\ndef custom_component(html_code):\n    components.html(html_code)\n\n# Use the custom component in your app\ncustom_component('<h1 style=\"color:red;\">Hello, World!</h1>')",
     "Session State",
     "Streamlit provides a way to persist data across different runs of your script with session state. This can be useful for keeping track of user input or other stateful information:",
     "CODE:import streamlit as st\n\n# Initialize state\nif 'counter' not in st.session_state:\n    st.session_state.counter = 0\n\n# Increment counter\nif st.button('Increment'):\n    st.session_state.counter += 1\n\nst.write('Counter value:', st.session_state.counter)",
     "These advanced features can help you build more powerful and interactive Streamlit applications."
+  ],
+  "theory4": [
+    "Deploying Streamlit Apps",
+    "Streamlit Cloud",
+    "Streamlit Cloud is a service provided by Streamlit for deploying, managing, and sharing Streamlit apps.",
+    "Steps to deploy on Streamlit Cloud:",
+    "1. Create a GitHub repository for your app.",
+    "2. Push your Streamlit app code to the repository.",
+    "3. Go to Streamlit Cloud (share.streamlit.io) and link your GitHub account.",
+    "4. Choose the repository and branch you want to deploy.",
+    "5. Click 'Deploy'.",
+    "Your app will be live on the internet, accessible via a shareable link."
+  ],
+  "theory5": [
+    "Deploying on Other Platforms",
+    "You can also deploy Streamlit apps on other platforms like Heroku, AWS, and Google Cloud.",
+    "Deploying on Heroku:",
+    "1. Create a `Procfile` in your project directory with the content: `web: streamlit run your_script.py`.",
+    "2. Create a `requirements.txt` file with your app dependencies.",
+    "3. Install the Heroku CLI and log in.",
+    "4. Create a new Heroku app using `heroku create`.",
+    "5. Push your code to Heroku using `git push heroku main`.",
+    "Your app will be deployed and accessible via a Heroku URL."
+  ],
+  "theory6": [
+    "Advanced Visualization Techniques",
+    "Using Plotly for Interactive Graphs",
+    "Plotly is a powerful library for creating interactive graphs. It integrates seamlessly with Streamlit.",
+    "CODE:import streamlit as st\nimport plotly.express as px\n\ndf = px.data.gapminder()\nfig = px.line(df, x='year', y='lifeExp', color='continent', line_group='country', hover_name='country')\nst.plotly_chart(fig)",
+    "Combining Multiple Charts",
+    "You can combine multiple charts and display them together in a Streamlit app.",
+    "CODE:import streamlit as st\nimport plotly.express as px\nimport plotly.graph_objects as go\n\ndf = px.data.gapminder()\nfig1 = px.scatter(df, x='gdpPercap', y='lifeExp', size='pop', color='continent', hover_name='country', log_x=True)\nfig2 = go.Figure(data=go.Scatter(x=df['year'], y=df['lifeExp']))\n\nst.plotly_chart(fig1)\nst.plotly_chart(fig2)"
   ]
 }

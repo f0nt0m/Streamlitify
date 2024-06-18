@@ -2,7 +2,6 @@ import flet as ft
 from init.basescreen import BaseScreen
 from init.database import UserDatabase
 
-
 class SignInScreen(BaseScreen):
     def __init__(self, page, app):
         super().__init__(page, app)
@@ -53,8 +52,10 @@ class SignInScreen(BaseScreen):
     def signin_clicked(self, e):
         login_or_email = self.login_field.value
         password = self.password_field.value
-        if self.db.authenticate_user(login_or_email, password):
+        user_id = self.db.authenticate_user(login_or_email, password)
+        if user_id:
             user_data = self.db.get_user_data(login_or_email)
+            self.app.current_user_id = user_id  # Save the user_id
             self.app.login = user_data["login"]
             self.app.email = user_data["email"]
             self.app.show_screen("mainmenu")

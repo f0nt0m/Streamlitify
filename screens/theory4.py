@@ -1,12 +1,11 @@
 import flet as ft
-import json
 from init.basescreen import BaseScreen
+import json
 
-
-class TheoryScreen3(BaseScreen):
+class TheoryScreen4(BaseScreen):
     def __init__(self, page, app):
         super().__init__(page, app)
-        self.theory_title = ft.Text("Theory - Advanced Topics", size=30, weight=ft.FontWeight.BOLD)
+        self.theory_title = ft.Text("Deploying Streamlit Apps", size=30, weight=ft.FontWeight.BOLD)
         self.theory_text = ft.Column(width=600, spacing=0)
         self.next_topic_button = ft.ElevatedButton(
             text="To the next topic",
@@ -29,11 +28,25 @@ class TheoryScreen3(BaseScreen):
         self.scroll_container = None
         self.load_theory_content()
 
+    def load_theory_content(self):
+        with open("text/theory.json", "r") as file:
+            theory_data = json.load(file)["theory4"]
+
+        content = []
+        for item in theory_data:
+            if item.startswith("CODE:"):
+                content.append(self.create_code_block(item[5:]))
+            else:
+                content.append(ft.Text(item, size=16))
+
+        self.theory_text.controls.clear()
+        self.theory_text.controls.extend(content)
+
     def go_back(self, e):
         self.app.show_screen("mainmenu")
 
     def go_to_next_topic(self, e):
-        self.app.show_screen("theory4")
+        self.app.show_screen("theory5")
 
     def copy_to_clipboard(self, e, text):
         self.page.set_clipboard(text)
@@ -69,21 +82,6 @@ class TheoryScreen3(BaseScreen):
             margin=ft.margin.symmetric(vertical=5),  # Добавлен вертикальный отступ между блоками
         )
 
-    def load_theory_content(self):
-        with open("text/theory.json", "r") as file:
-            theory_data = json.load(file)["theory3"]
-
-        content = []
-        for item in theory_data:
-            if item.startswith("CODE:"):
-                content.append(self.create_code_block(item[5:]))
-            else:
-                content.append(ft.Text(item, size=16))
-            content.append(ft.Container(height=10))  # Добавляем отступ
-
-        self.theory_text.controls.clear()
-        self.theory_text.controls.extend(content)
-
     def build(self):
         self.scroll_container = ft.Container(
             content=ft.Column(
@@ -94,14 +92,12 @@ class TheoryScreen3(BaseScreen):
                             [
                                 ft.Container(
                                     content=self.theory_text,
-                                    height=400,  # Фиксированная высота для текста
                                     expand=True,
                                 )
                             ],
                             expand=True,
                             scroll=ft.ScrollMode.AUTO,  # Включили автоматический скроллинг
                         ),
-                        height=400,  # Фиксированная высота для контейнера с текстом
                         expand=True,
                     ),
                     self.next_topic_button,
