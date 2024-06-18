@@ -79,7 +79,7 @@
         },
         {
             "title": "Test",
-            "question": "What is the main advantage of using Streamlit for data scientists and machine learning engineers?",
+            "question": "What is the main advantage of using Streamlit for data scientists?",
             "options": [
                 "Creating interactive applications",
                 "Building static websites",

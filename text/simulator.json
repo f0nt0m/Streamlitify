@@ -1,0 +1,34 @@
+{
+    "simulator": [
+        {
+            "title": "Simulator",
+            "description": "Correct the code to display a title and a text message.",
+            "code_snippet": "import pandas as pd\n\npd.title('My Streamlit App')\n\npd.write('This is a sample Streamlit app.')",
+            "correct_code": "import streamlit as st\n\nst.title('My Streamlit App')\nst.write('This is a sample Streamlit app.')"
+        },
+        {
+            "title": "Simulator",
+            "description": "Fix the code to display a header and a text message.",
+            "code_snippet": "import streamlit as st\n\nst.header(\"Welcome to Streamlit\")\nwrite(\"This is another example of a Streamlit app.\")\nst.write(\"Missing parenthesis\"",
+            "correct_code": "import streamlit as st\n\nst.header(\"Welcome to Streamlit\")\nst.write(\"This is another example of a Streamlit app.\")"
+        },
+        {
+            "title": "Simulator",
+            "description": "Correct the code to display a subheader and a text message.",
+            "code_snippet": "import numpy as np\n\nnp.subheader(\"Streamlit Subheader\")\nst.write('Yet another example of a Streamlit app.')",
+            "correct_code": "import streamlit as st\n\nst.subheader(\"Streamlit Subheader\")\nst.write('Yet another example of a Streamlit app.')"
+        },
+        {
+            "title": "Simulator",
+            "description": "Fix the code to display a simple text message.",
+            "code_snippet": "import streamlit as st\n\nst.text(\"Plain text in Streamlit\"))\nst.write\"This is a simple Streamlit app with plain text.\")",
+            "correct_code": "import streamlit as st\n\nst.text(\"Plain text in Streamlit\")\nst.write(\"This is a simple Streamlit app with plain text.\")"
+        },
+        {
+            "title": "Simulator",
+            "description": "Correct the code to display a markdown header and a text message.",
+            "code_snippet": "import matplotlib.pyplot as plt\n\nplt.markdown('# Markdown in Streamlit')\nst.write('This is a Streamlit app demonstrating markdown.')",
+            "correct_code": "import streamlit as st\n\nst.markdown('# Markdown in Streamlit')\nst.write('This is a Streamlit app demonstrating markdown.')"
+        }
+    ]
+}

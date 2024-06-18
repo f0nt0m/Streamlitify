@@ -3,9 +3,9 @@ from init.basescreen import BaseScreen
 from init.database import UserDatabase
 
 
-class TestResultsScreen(BaseScreen):
+class SimulatorResultsScreen(BaseScreen):
     """
-    Экран с результатами тестирования.
+    Экран с результатами симулятора кода.
     """
 
     def __init__(self, page, app):
@@ -13,8 +13,8 @@ class TestResultsScreen(BaseScreen):
         Инициализирует экран с результатами.
         """
         super().__init__(page, app)
-        self.results_title = ft.Text("Test Results", size=30, weight=ft.FontWeight.BOLD)  # Заголовок экрана с результатами
-        self.correct_answers_text = ft.Text(size=20)  # Текст с количеством правильных ответов
+        self.results_title = ft.Text("Simulator Results", size=30, weight=ft.FontWeight.BOLD)  # Заголовок экрана с результатами
+        self.correct_simulators_text = ft.Text(size=20)  # Текст с количеством правильно решенных задач
         self.percentage_text = ft.Text(size=20)  # Текст с процентом успешных решений
         self.grade_text = ft.Text(size=20)  # Текст с оценкой
         self.go_back_button = ft.TextButton(
@@ -34,7 +34,7 @@ class TestResultsScreen(BaseScreen):
         Возвращает пользователя в главное меню.
         """
         self.app.show_screen("mainmenu")  # Показывает главное меню
-        self.app.screens["test1"].reset_test()  # Сбрасывает тест
+        self.app.screens["simulator1"].reset_simulator()  # Сбрасывает симулятор
 
     def build(self):
         """
@@ -44,7 +44,7 @@ class TestResultsScreen(BaseScreen):
             content=ft.Column(
                 [
                     self.results_title,  # Заголовок результатов
-                    self.correct_answers_text,  # Текст с количеством правильных ответов
+                    self.correct_simulators_text,  # Текст с количеством правильно решенных задач
                     self.percentage_text,  # Текст с процентом успешных решений
                     self.grade_text,  # Текст с оценкой
                 ],
@@ -86,25 +86,25 @@ class TestResultsScreen(BaseScreen):
         )
         return results_page_container
 
-    def set_results(self, correct_answers, total_questions):
+    def set_results(self, correct_simulators, total_simulators):
         """
-        Устанавливает результаты теста на экран.
+        Устанавливает результаты симулятора на экран.
         """
-        self.correct_answers_text.value = f"Correct Answers: {correct_answers} / {total_questions}"  # Выводит количество правильных ответов
-        percentage = (correct_answers / total_questions) * 100  # Рассчитывает процент успешных решений
+        self.correct_simulators_text.value = f"Correct Simulators: {correct_simulators} / {total_simulators}"  # Выводит количество правильно решенных задач
+        percentage = (correct_simulators / total_simulators) * 100  # Рассчитывает процент успешных решений
         self.percentage_text.value = f"Percentage: {percentage:.2f}%"  # Выводит процент успешных решений
-
         self.grade_text.value = f"Grade: {self.get_grade(percentage)}"  # Выводит оценку на основе процента успешных решений
+
         self.page.update()  # Обновляет страницу
 
         # Сохранение результатов в БД
         user_id = self.app.current_user_id
         db = UserDatabase()
-        existing_results = db.get_test_results(user_id)
+        existing_results = db.get_simulator_results(user_id)
         if existing_results:
-            db.update_test_result(user_id, correct_answers, total_questions)
+            db.update_simulator_result(user_id, correct_simulators, total_simulators)
         else:
-            db.add_test_result(user_id, correct_answers, total_questions)
+            db.add_simulator_result(user_id, correct_simulators, total_simulators)
         db.close()
 
     def get_grade(self, percentage):
