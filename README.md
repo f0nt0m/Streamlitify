@@ -4,7 +4,7 @@ Welcome to **Streamlitify**, an educational application designed to help you lea
 
 ## Status
 
-The app is currently under development, with updates coming out every day.
+The app is currently under development, in alpha version, with updates coming in the future. The README file will be kept up to date.
 
 ## Contact
 
